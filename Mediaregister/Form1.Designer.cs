@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.MediaTabControl = new System.Windows.Forms.TabControl();
-            this.BookTitleLabel = new System.Windows.Forms.Label();
-            this.AuthorLabel = new System.Windows.Forms.Label();
-            this.PagesLabel = new System.Windows.Forms.Label();
-            this.BookTitleTextBox = new System.Windows.Forms.TextBox();
-            this.AuthorTextBox = new System.Windows.Forms.TextBox();
-            this.PagesNumber = new System.Windows.Forms.NumericUpDown();
-            this.AddBookButton = new System.Windows.Forms.Button();
             this.BookTabPage = new System.Windows.Forms.TabPage();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.AddBookButton = new System.Windows.Forms.Button();
+            this.PagesNumber = new System.Windows.Forms.NumericUpDown();
+            this.AuthorTextBox = new System.Windows.Forms.TextBox();
+            this.BookTitleTextBox = new System.Windows.Forms.TextBox();
+            this.PagesLabel = new System.Windows.Forms.Label();
+            this.AuthorLabel = new System.Windows.Forms.Label();
+            this.BookTitleLabel = new System.Windows.Forms.Label();
+            this.FilmTabPage = new System.Windows.Forms.TabPage();
             this.AddFilmButton = new System.Windows.Forms.Button();
             this.LengthNumber = new System.Windows.Forms.NumericUpDown();
             this.DirectorTextBox = new System.Windows.Forms.TextBox();
@@ -45,81 +45,23 @@
             this.LengthLabel = new System.Windows.Forms.Label();
             this.DirectorLabel = new System.Windows.Forms.Label();
             this.FilmTitleLabel = new System.Windows.Forms.Label();
-            this.MediaList = new System.Windows.Forms.ListView();
+            this.MediaList = new System.Windows.Forms.ListBox();
             this.MediaTabControl.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).BeginInit();
             this.BookTabPage.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).BeginInit();
+            this.FilmTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumber)).BeginInit();
             this.SuspendLayout();
             // 
             // MediaTabControl
             // 
             this.MediaTabControl.Controls.Add(this.BookTabPage);
-            this.MediaTabControl.Controls.Add(this.tabPage1);
+            this.MediaTabControl.Controls.Add(this.FilmTabPage);
             this.MediaTabControl.Location = new System.Drawing.Point(76, 57);
             this.MediaTabControl.Name = "MediaTabControl";
             this.MediaTabControl.SelectedIndex = 0;
             this.MediaTabControl.Size = new System.Drawing.Size(230, 274);
             this.MediaTabControl.TabIndex = 0;
-            // 
-            // BookTitleLabel
-            // 
-            this.BookTitleLabel.AutoSize = true;
-            this.BookTitleLabel.Location = new System.Drawing.Point(19, 63);
-            this.BookTitleLabel.Name = "BookTitleLabel";
-            this.BookTitleLabel.Size = new System.Drawing.Size(30, 13);
-            this.BookTitleLabel.TabIndex = 0;
-            this.BookTitleLabel.Text = "Titel:";
-            // 
-            // AuthorLabel
-            // 
-            this.AuthorLabel.AutoSize = true;
-            this.AuthorLabel.Location = new System.Drawing.Point(19, 93);
-            this.AuthorLabel.Name = "AuthorLabel";
-            this.AuthorLabel.Size = new System.Drawing.Size(55, 13);
-            this.AuthorLabel.TabIndex = 1;
-            this.AuthorLabel.Text = "Författare:";
-            // 
-            // PagesLabel
-            // 
-            this.PagesLabel.AutoSize = true;
-            this.PagesLabel.Location = new System.Drawing.Point(19, 123);
-            this.PagesLabel.Name = "PagesLabel";
-            this.PagesLabel.Size = new System.Drawing.Size(34, 13);
-            this.PagesLabel.TabIndex = 2;
-            this.PagesLabel.Text = "Sidor:";
-            // 
-            // BookTitleTextBox
-            // 
-            this.BookTitleTextBox.Location = new System.Drawing.Point(80, 63);
-            this.BookTitleTextBox.Name = "BookTitleTextBox";
-            this.BookTitleTextBox.Size = new System.Drawing.Size(120, 20);
-            this.BookTitleTextBox.TabIndex = 3;
-            // 
-            // AuthorTextBox
-            // 
-            this.AuthorTextBox.Location = new System.Drawing.Point(80, 93);
-            this.AuthorTextBox.Name = "AuthorTextBox";
-            this.AuthorTextBox.Size = new System.Drawing.Size(120, 20);
-            this.AuthorTextBox.TabIndex = 4;
-            // 
-            // PagesNumber
-            // 
-            this.PagesNumber.Location = new System.Drawing.Point(80, 123);
-            this.PagesNumber.Name = "PagesNumber";
-            this.PagesNumber.Size = new System.Drawing.Size(120, 20);
-            this.PagesNumber.TabIndex = 5;
-            // 
-            // AddBookButton
-            // 
-            this.AddBookButton.Location = new System.Drawing.Point(115, 199);
-            this.AddBookButton.Name = "AddBookButton";
-            this.AddBookButton.Size = new System.Drawing.Size(75, 23);
-            this.AddBookButton.TabIndex = 6;
-            this.AddBookButton.Text = "Lägg till bok";
-            this.AddBookButton.UseVisualStyleBackColor = true;
-            this.AddBookButton.Click += new System.EventHandler(this.AddBookButton_Click);
             // 
             // BookTabPage
             // 
@@ -138,22 +80,95 @@
             this.BookTabPage.Text = "Lägg till bok";
             this.BookTabPage.UseVisualStyleBackColor = true;
             // 
-            // tabPage1
+            // AddBookButton
             // 
-            this.tabPage1.Controls.Add(this.AddFilmButton);
-            this.tabPage1.Controls.Add(this.LengthNumber);
-            this.tabPage1.Controls.Add(this.DirectorTextBox);
-            this.tabPage1.Controls.Add(this.FilmTitleTextBox);
-            this.tabPage1.Controls.Add(this.LengthLabel);
-            this.tabPage1.Controls.Add(this.DirectorLabel);
-            this.tabPage1.Controls.Add(this.FilmTitleLabel);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(222, 248);
-            this.tabPage1.TabIndex = 1;
-            this.tabPage1.Text = "Lägg till film";
-            this.tabPage1.UseVisualStyleBackColor = true;
+            this.AddBookButton.Location = new System.Drawing.Point(115, 199);
+            this.AddBookButton.Name = "AddBookButton";
+            this.AddBookButton.Size = new System.Drawing.Size(75, 23);
+            this.AddBookButton.TabIndex = 6;
+            this.AddBookButton.Text = "Lägg till bok";
+            this.AddBookButton.UseVisualStyleBackColor = true;
+            this.AddBookButton.Click += new System.EventHandler(this.AddBookButton_Click);
+            // 
+            // PagesNumber
+            // 
+            this.PagesNumber.Location = new System.Drawing.Point(80, 123);
+            this.PagesNumber.Maximum = new decimal(new int[] {
+            10000,
+            0,
+            0,
+            0});
+            this.PagesNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.PagesNumber.Name = "PagesNumber";
+            this.PagesNumber.Size = new System.Drawing.Size(120, 20);
+            this.PagesNumber.TabIndex = 5;
+            this.PagesNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // AuthorTextBox
+            // 
+            this.AuthorTextBox.Location = new System.Drawing.Point(80, 93);
+            this.AuthorTextBox.Name = "AuthorTextBox";
+            this.AuthorTextBox.Size = new System.Drawing.Size(120, 20);
+            this.AuthorTextBox.TabIndex = 4;
+            // 
+            // BookTitleTextBox
+            // 
+            this.BookTitleTextBox.Location = new System.Drawing.Point(80, 63);
+            this.BookTitleTextBox.Name = "BookTitleTextBox";
+            this.BookTitleTextBox.Size = new System.Drawing.Size(120, 20);
+            this.BookTitleTextBox.TabIndex = 3;
+            // 
+            // PagesLabel
+            // 
+            this.PagesLabel.AutoSize = true;
+            this.PagesLabel.Location = new System.Drawing.Point(19, 123);
+            this.PagesLabel.Name = "PagesLabel";
+            this.PagesLabel.Size = new System.Drawing.Size(34, 13);
+            this.PagesLabel.TabIndex = 2;
+            this.PagesLabel.Text = "Sidor:";
+            // 
+            // AuthorLabel
+            // 
+            this.AuthorLabel.AutoSize = true;
+            this.AuthorLabel.Location = new System.Drawing.Point(19, 93);
+            this.AuthorLabel.Name = "AuthorLabel";
+            this.AuthorLabel.Size = new System.Drawing.Size(55, 13);
+            this.AuthorLabel.TabIndex = 1;
+            this.AuthorLabel.Text = "Författare:";
+            // 
+            // BookTitleLabel
+            // 
+            this.BookTitleLabel.AutoSize = true;
+            this.BookTitleLabel.Location = new System.Drawing.Point(19, 63);
+            this.BookTitleLabel.Name = "BookTitleLabel";
+            this.BookTitleLabel.Size = new System.Drawing.Size(30, 13);
+            this.BookTitleLabel.TabIndex = 0;
+            this.BookTitleLabel.Text = "Titel:";
+            // 
+            // FilmTabPage
+            // 
+            this.FilmTabPage.Controls.Add(this.AddFilmButton);
+            this.FilmTabPage.Controls.Add(this.LengthNumber);
+            this.FilmTabPage.Controls.Add(this.DirectorTextBox);
+            this.FilmTabPage.Controls.Add(this.FilmTitleTextBox);
+            this.FilmTabPage.Controls.Add(this.LengthLabel);
+            this.FilmTabPage.Controls.Add(this.DirectorLabel);
+            this.FilmTabPage.Controls.Add(this.FilmTitleLabel);
+            this.FilmTabPage.Location = new System.Drawing.Point(4, 22);
+            this.FilmTabPage.Name = "FilmTabPage";
+            this.FilmTabPage.Padding = new System.Windows.Forms.Padding(3);
+            this.FilmTabPage.Size = new System.Drawing.Size(222, 248);
+            this.FilmTabPage.TabIndex = 1;
+            this.FilmTabPage.Text = "Lägg till film";
+            this.FilmTabPage.UseVisualStyleBackColor = true;
             // 
             // AddFilmButton
             // 
@@ -215,11 +230,11 @@
             // 
             // MediaList
             // 
-            this.MediaList.Location = new System.Drawing.Point(400, 79);
+            this.MediaList.FormattingEnabled = true;
+            this.MediaList.Location = new System.Drawing.Point(428, 79);
             this.MediaList.Name = "MediaList";
-            this.MediaList.Size = new System.Drawing.Size(230, 248);
+            this.MediaList.Size = new System.Drawing.Size(190, 251);
             this.MediaList.TabIndex = 1;
-            this.MediaList.UseCompatibleStateImageBehavior = false;
             // 
             // Form1
             // 
@@ -231,11 +246,11 @@
             this.Name = "Form1";
             this.Text = "Form1";
             this.MediaTabControl.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).EndInit();
             this.BookTabPage.ResumeLayout(false);
             this.BookTabPage.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).EndInit();
+            this.FilmTabPage.ResumeLayout(false);
+            this.FilmTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumber)).EndInit();
             this.ResumeLayout(false);
 
@@ -252,7 +267,7 @@
         private System.Windows.Forms.Label PagesLabel;
         private System.Windows.Forms.Label AuthorLabel;
         private System.Windows.Forms.Label BookTitleLabel;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage FilmTabPage;
         private System.Windows.Forms.Button AddFilmButton;
         private System.Windows.Forms.NumericUpDown LengthNumber;
         private System.Windows.Forms.TextBox DirectorTextBox;
@@ -260,7 +275,7 @@
         private System.Windows.Forms.Label LengthLabel;
         private System.Windows.Forms.Label DirectorLabel;
         private System.Windows.Forms.Label FilmTitleLabel;
-        private System.Windows.Forms.ListView MediaList;
+        private System.Windows.Forms.ListBox MediaList;
     }
 }
 
