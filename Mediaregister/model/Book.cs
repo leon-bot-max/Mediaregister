@@ -20,7 +20,7 @@ namespace Mediaregister.model
 
         public override string ToString()
         {
-            return "BjdsfnsdjkfsdjfbsdkbfksdbfksdbfksdbfkjsbdfjkbskdfsjkfbsdbfjksdbfjksdbfksdbfkbsdkfbsdkbfksdOK";
+            return Title + $" ({_author}, {_nrOfPages} sidor)";
         }
     }
 }

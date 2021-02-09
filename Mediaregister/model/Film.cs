@@ -20,7 +20,7 @@ namespace Mediaregister.model
 
         public override string ToString()
         {
-            return "FILM";
+            return Title + $" ({_director}, {_length} minuter)";
         }
     }
 }

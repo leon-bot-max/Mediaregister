@@ -45,7 +45,7 @@
             this.LengthLabel = new System.Windows.Forms.Label();
             this.DirectorLabel = new System.Windows.Forms.Label();
             this.FilmTitleLabel = new System.Windows.Forms.Label();
-            this.MediaList = new System.Windows.Forms.ListBox();
+            this.MediaListBox = new System.Windows.Forms.TextBox();
             this.MediaTabControl.SuspendLayout();
             this.BookTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).BeginInit();
@@ -228,20 +228,22 @@
             this.FilmTitleLabel.TabIndex = 0;
             this.FilmTitleLabel.Text = "Titel:";
             // 
-            // MediaList
+            // MediaListBox
             // 
-            this.MediaList.FormattingEnabled = true;
-            this.MediaList.Location = new System.Drawing.Point(428, 79);
-            this.MediaList.Name = "MediaList";
-            this.MediaList.Size = new System.Drawing.Size(190, 251);
-            this.MediaList.TabIndex = 1;
+            this.MediaListBox.BackColor = System.Drawing.Color.White;
+            this.MediaListBox.Location = new System.Drawing.Point(366, 79);
+            this.MediaListBox.Multiline = true;
+            this.MediaListBox.Name = "MediaListBox";
+            this.MediaListBox.ReadOnly = true;
+            this.MediaListBox.Size = new System.Drawing.Size(217, 248);
+            this.MediaListBox.TabIndex = 2;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.MediaList);
+            this.Controls.Add(this.MediaListBox);
             this.Controls.Add(this.MediaTabControl);
             this.Name = "Form1";
             this.Text = "Form1";
@@ -253,6 +255,7 @@
             this.FilmTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumber)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -275,7 +278,7 @@
         private System.Windows.Forms.Label LengthLabel;
         private System.Windows.Forms.Label DirectorLabel;
         private System.Windows.Forms.Label FilmTitleLabel;
-        private System.Windows.Forms.ListBox MediaList;
+        private System.Windows.Forms.TextBox MediaListBox;
     }
 }
 

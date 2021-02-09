@@ -70,17 +70,14 @@ namespace Mediaregister
 
         private void UpdateList()
         {
-            
-            // Shutdown the painting of the ListBox as items are added.
-            MediaList.BeginUpdate();
-            // Loop through and add 50 items to the ListBox.
-            foreach (Book book in allBooks)
-            {
-                MediaList.Items.Add(book.ToString());
-            }
+            string[] newstring = new string[allBooks.Count];
 
-            // Allow the ListBox to repaint and display the new items.
-            MediaList.EndUpdate();
+            for (int i = 0; i < allBooks.Count; i++)
+            {
+                newstring[i] = allBooks[i].ToString();
+            }
+            MediaListBox.Lines = newstring;
+
         }
 
     }
