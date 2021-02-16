@@ -13,9 +13,12 @@ namespace Mediaregister
 {
     public partial class Form1 : Form
     {
-
-        private List<Media> allBooks = new List<Media>();
-        private List<Media> allFilms = new List<Media>();
+        enum SelectViews
+        {
+            AllMedia, AllBooks, AllFilms
+        }
+        private List<Media> allMedia = new List<Media>();
+        private SelectViews selectedView = SelectViews.AllMedia;
 
         public Form1()
         {
@@ -51,7 +54,7 @@ namespace Mediaregister
             int nrPages = (int) PagesNumber.Value;
             if (ValidateInputs(title, author, nrPages))
             {
-                allBooks.Add(new Book(title, author, nrPages));
+                allMedia.Add(new Book(title, author, nrPages));
             }
             UpdateList();
         }
@@ -63,22 +66,59 @@ namespace Mediaregister
             int length = (int)LengthNumber.Value;
             if (ValidateInputs(title, director, length))
             {
-                allFilms.Add(new Film(title, director, length));
+                allMedia.Add(new Film(title, director, length));
+
             }
+            UpdateList();
         }
 
 
         private void UpdateList()
         {
-            string[] newstring = new string[allBooks.Count];
 
-            for (int i = 0; i < allBooks.Count; i++)
+
+            string[] newstring = new string[allMedia.Count];
+
+            for (int i = 0; i < newstring.Length; i++)
             {
-                newstring[i] = allBooks[i].ToString();
+                if (typeof(Book) == allMedia[i].GetType())
+                {
+                    newstring[i] = allMedia[i].ToString();
+                }
             }
             MediaListBox.Lines = newstring;
 
         }
 
+        private void ShowRadioButtons_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton rb = sender as RadioButton;
+            //Sender != radiobutton
+            if (rb == null)
+            {
+                return;
+            }
+
+            if (rb.Checked)
+            {
+                switch (rb.Name)
+                {
+                    case "AllMediaRadioButton":
+                        selectedView = SelectViews.AllMedia;
+                        break;
+                    case "AllBooksRadioButton":
+                        selectedView = SelectViews.AllBooks;
+                        break;
+                    case "AllFilmsRadioButton":
+                        selectedView = SelectViews.AllFilms;
+                        break;
+                    default:
+                        break;
+                }
+
+                UpdateList();
+
+            }
+        }
     }
 }

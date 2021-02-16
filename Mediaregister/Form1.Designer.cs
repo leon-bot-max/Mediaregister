@@ -46,11 +46,16 @@
             this.DirectorLabel = new System.Windows.Forms.Label();
             this.FilmTitleLabel = new System.Windows.Forms.Label();
             this.MediaListBox = new System.Windows.Forms.TextBox();
+            this.ShowButtonsGroup = new System.Windows.Forms.GroupBox();
+            this.AllMediaButton = new System.Windows.Forms.RadioButton();
+            this.AllBooksButton = new System.Windows.Forms.RadioButton();
+            this.AllFilmsButton = new System.Windows.Forms.RadioButton();
             this.MediaTabControl.SuspendLayout();
             this.BookTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).BeginInit();
             this.FilmTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumber)).BeginInit();
+            this.ShowButtonsGroup.SuspendLayout();
             this.SuspendLayout();
             // 
             // MediaTabControl
@@ -238,11 +243,61 @@
             this.MediaListBox.Size = new System.Drawing.Size(217, 248);
             this.MediaListBox.TabIndex = 2;
             // 
+            // ShowButtonsGroup
+            // 
+            this.ShowButtonsGroup.Controls.Add(this.AllFilmsButton);
+            this.ShowButtonsGroup.Controls.Add(this.AllBooksButton);
+            this.ShowButtonsGroup.Controls.Add(this.AllMediaButton);
+            this.ShowButtonsGroup.Location = new System.Drawing.Point(366, 356);
+            this.ShowButtonsGroup.Name = "ShowButtonsGroup";
+            this.ShowButtonsGroup.Size = new System.Drawing.Size(345, 100);
+            this.ShowButtonsGroup.TabIndex = 3;
+            this.ShowButtonsGroup.TabStop = false;
+            this.ShowButtonsGroup.Text = "Visa";
+            // 
+            // AllMediaButton
+            // 
+            this.AllMediaButton.AutoSize = true;
+            this.AllMediaButton.Checked = true;
+            this.AllMediaButton.Location = new System.Drawing.Point(21, 46);
+            this.AllMediaButton.Name = "AllMediaButton";
+            this.AllMediaButton.Size = new System.Drawing.Size(42, 17);
+            this.AllMediaButton.TabIndex = 0;
+            this.AllMediaButton.TabStop = true;
+            this.AllMediaButton.Text = "Alla";
+            this.AllMediaButton.UseVisualStyleBackColor = true;
+            this.AllMediaButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
+            // 
+            // AllBooksButton
+            // 
+            this.AllBooksButton.AutoSize = true;
+            this.AllBooksButton.Location = new System.Drawing.Point(113, 46);
+            this.AllBooksButton.Name = "AllBooksButton";
+            this.AllBooksButton.Size = new System.Drawing.Size(59, 17);
+            this.AllBooksButton.TabIndex = 1;
+            this.AllBooksButton.Text = "Böcker";
+            this.AllBooksButton.UseVisualStyleBackColor = true;
+            this.AllBooksButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
+
+            // 
+            // AllFilmsButton
+            // 
+            this.AllFilmsButton.AutoSize = true;
+            this.AllFilmsButton.Location = new System.Drawing.Point(204, 46);
+            this.AllFilmsButton.Name = "AllFilmsButton";
+            this.AllFilmsButton.Size = new System.Drawing.Size(52, 17);
+            this.AllFilmsButton.TabIndex = 2;
+            this.AllFilmsButton.Text = "Filmer";
+            this.AllFilmsButton.UseVisualStyleBackColor = true;
+            this.AllFilmsButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
+
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(822, 485);
+            this.Controls.Add(this.ShowButtonsGroup);
             this.Controls.Add(this.MediaListBox);
             this.Controls.Add(this.MediaTabControl);
             this.Name = "Form1";
@@ -254,6 +309,8 @@
             this.FilmTabPage.ResumeLayout(false);
             this.FilmTabPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.LengthNumber)).EndInit();
+            this.ShowButtonsGroup.ResumeLayout(false);
+            this.ShowButtonsGroup.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -279,6 +336,10 @@
         private System.Windows.Forms.Label DirectorLabel;
         private System.Windows.Forms.Label FilmTitleLabel;
         private System.Windows.Forms.TextBox MediaListBox;
+        private System.Windows.Forms.GroupBox ShowButtonsGroup;
+        private System.Windows.Forms.RadioButton AllFilmsButton;
+        private System.Windows.Forms.RadioButton AllBooksButton;
+        private System.Windows.Forms.RadioButton AllMediaButton;
     }
 }
 
