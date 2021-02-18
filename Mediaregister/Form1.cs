@@ -38,15 +38,29 @@ namespace Mediaregister
         private bool ValidateInputs(string title, string writer, int length)
         {
             if (title.Length <= 0)
+            {
                 return false;
+            }
             else if (writer.Length <= 0)
+            {
                 return false;
+            }
             else if (length <= 0)
+            {
                 return false;
+            }
             return true;
         }
 
+        private void SendErrorMessage(string message)
+        {
+            // Initializes the variables to pass to the MessageBox.Show method.
+            string caption = "Error Detected in Input";
+            MessageBoxButtons buttons = MessageBoxButtons.OK;
 
+            // Displays the MessageBox.
+            MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
+        }
         private void AddBookButton_Click(object sender, EventArgs e)
         {
             string title = BookTitleTextBox.Text;
@@ -55,8 +69,16 @@ namespace Mediaregister
             if (ValidateInputs(title, author, nrPages))
             {
                 allMedia.Add(new Book(title, author, nrPages));
+                BookTitleTextBox.Text = "";
+                AuthorTextBox.Text = "";
+                PagesNumber.Value = PagesNumber.Minimum;
+            }
+            else
+            {
+                SendErrorMessage("Ogiltlig input");
             }
             UpdateList();
+
         }
 
         private void AddFilmButton_Click(object sender, EventArgs e)
@@ -67,26 +89,50 @@ namespace Mediaregister
             if (ValidateInputs(title, director, length))
             {
                 allMedia.Add(new Film(title, director, length));
+                FilmTitleTextBox.Text = "";
+                DirectorTextBox.Text = "";
+                LengthNumber.Value = LengthNumber.Minimum;
 
             }
+            else
+            {
+                SendErrorMessage("Ogiltlig input");
+            }
             UpdateList();
+
         }
 
 
         private void UpdateList()
         {
+            
 
+            string[] newLines = new string[allMedia.Count];
+            int index = 0; //Index in the newlines
 
-            string[] newstring = new string[allMedia.Count];
-
-            for (int i = 0; i < newstring.Length; i++)
+            for (int i = 0; i < newLines.Length; i++)
             {
-                if (typeof(Book) == allMedia[i].GetType())
+
+                Media media = allMedia[i];
+                switch (selectedView)
                 {
-                    newstring[i] = allMedia[i].ToString();
+                    case SelectViews.AllBooks:
+                        media = allMedia[i] as Book;
+                        break;
+                    case SelectViews.AllFilms:
+                        media = allMedia[i] as Film;
+                        break;
+                    default:
+                        break;
                 }
+                if (media != null)
+                {
+                    newLines[index] = media.ToString();
+                    index++;
+                }
+                
             }
-            MediaListBox.Lines = newstring;
+            MediaListBox.Lines = newLines;
 
         }
 
@@ -103,13 +149,13 @@ namespace Mediaregister
             {
                 switch (rb.Name)
                 {
-                    case "AllMediaRadioButton":
+                    case "AllMediaButton":
                         selectedView = SelectViews.AllMedia;
                         break;
-                    case "AllBooksRadioButton":
+                    case "AllBooksButton":
                         selectedView = SelectViews.AllBooks;
                         break;
-                    case "AllFilmsRadioButton":
+                    case "AllFilmsButton":
                         selectedView = SelectViews.AllFilms;
                         break;
                     default:

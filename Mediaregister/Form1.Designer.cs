@@ -47,9 +47,9 @@
             this.FilmTitleLabel = new System.Windows.Forms.Label();
             this.MediaListBox = new System.Windows.Forms.TextBox();
             this.ShowButtonsGroup = new System.Windows.Forms.GroupBox();
-            this.AllMediaButton = new System.Windows.Forms.RadioButton();
-            this.AllBooksButton = new System.Windows.Forms.RadioButton();
             this.AllFilmsButton = new System.Windows.Forms.RadioButton();
+            this.AllBooksButton = new System.Windows.Forms.RadioButton();
+            this.AllMediaButton = new System.Windows.Forms.RadioButton();
             this.MediaTabControl.SuspendLayout();
             this.BookTabPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PagesNumber)).BeginInit();
@@ -188,9 +188,24 @@
             // LengthNumber
             // 
             this.LengthNumber.Location = new System.Drawing.Point(80, 123);
+            this.LengthNumber.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.LengthNumber.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.LengthNumber.Name = "LengthNumber";
             this.LengthNumber.Size = new System.Drawing.Size(120, 20);
             this.LengthNumber.TabIndex = 5;
+            this.LengthNumber.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // DirectorTextBox
             // 
@@ -255,6 +270,28 @@
             this.ShowButtonsGroup.TabStop = false;
             this.ShowButtonsGroup.Text = "Visa";
             // 
+            // AllFilmsButton
+            // 
+            this.AllFilmsButton.AutoSize = true;
+            this.AllFilmsButton.Location = new System.Drawing.Point(204, 46);
+            this.AllFilmsButton.Name = "AllFilmsButton";
+            this.AllFilmsButton.Size = new System.Drawing.Size(52, 17);
+            this.AllFilmsButton.TabIndex = 2;
+            this.AllFilmsButton.Text = "Filmer";
+            this.AllFilmsButton.UseVisualStyleBackColor = true;
+            this.AllFilmsButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
+            // 
+            // AllBooksButton
+            // 
+            this.AllBooksButton.AutoSize = true;
+            this.AllBooksButton.Location = new System.Drawing.Point(113, 46);
+            this.AllBooksButton.Name = "AllBooksButton";
+            this.AllBooksButton.Size = new System.Drawing.Size(59, 17);
+            this.AllBooksButton.TabIndex = 1;
+            this.AllBooksButton.Text = "Böcker";
+            this.AllBooksButton.UseVisualStyleBackColor = true;
+            this.AllBooksButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
+            // 
             // AllMediaButton
             // 
             this.AllMediaButton.AutoSize = true;
@@ -267,30 +304,6 @@
             this.AllMediaButton.Text = "Alla";
             this.AllMediaButton.UseVisualStyleBackColor = true;
             this.AllMediaButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
-            // 
-            // AllBooksButton
-            // 
-            this.AllBooksButton.AutoSize = true;
-            this.AllBooksButton.Location = new System.Drawing.Point(113, 46);
-            this.AllBooksButton.Name = "AllBooksButton";
-            this.AllBooksButton.Size = new System.Drawing.Size(59, 17);
-            this.AllBooksButton.TabIndex = 1;
-            this.AllBooksButton.Text = "Böcker";
-            this.AllBooksButton.UseVisualStyleBackColor = true;
-            this.AllBooksButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
-
-            // 
-            // AllFilmsButton
-            // 
-            this.AllFilmsButton.AutoSize = true;
-            this.AllFilmsButton.Location = new System.Drawing.Point(204, 46);
-            this.AllFilmsButton.Name = "AllFilmsButton";
-            this.AllFilmsButton.Size = new System.Drawing.Size(52, 17);
-            this.AllFilmsButton.TabIndex = 2;
-            this.AllFilmsButton.Text = "Filmer";
-            this.AllFilmsButton.UseVisualStyleBackColor = true;
-            this.AllFilmsButton.CheckedChanged += new System.EventHandler(this.ShowRadioButtons_CheckedChanged);
-
             // 
             // Form1
             // 
