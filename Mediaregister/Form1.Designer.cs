@@ -255,6 +255,7 @@
             this.MediaListBox.Multiline = true;
             this.MediaListBox.Name = "MediaListBox";
             this.MediaListBox.ReadOnly = true;
+            this.MediaListBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.MediaListBox.Size = new System.Drawing.Size(217, 248);
             this.MediaListBox.TabIndex = 2;
             // 

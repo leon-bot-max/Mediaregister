@@ -116,6 +116,7 @@ namespace Mediaregister
         {
             List<Media> mediaToWrite;
 
+            //Get the selected media
             switch (selectedView)
             {
                 case SelectViews.AllBooks:
@@ -140,9 +141,10 @@ namespace Mediaregister
             
             }
 
-                int index = 0; //Index in the newlines
 
             /*
+             *                 int index = 0; //Index in the newlines
+
             for (int i = 0; i < newLines.Length; i++)
             {
                 
