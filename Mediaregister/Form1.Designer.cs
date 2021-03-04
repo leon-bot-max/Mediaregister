@@ -313,8 +313,9 @@
             this.Controls.Add(this.ShowButtonsGroup);
             this.Controls.Add(this.MediaListBox);
             this.Controls.Add(this.MediaTabControl);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.Text = "Mediaregister";
             this.MediaTabControl.ResumeLayout(false);
             this.BookTabPage.ResumeLayout(false);
             this.BookTabPage.PerformLayout();

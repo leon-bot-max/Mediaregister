@@ -24,38 +24,42 @@ namespace Mediaregister
         {
             InitializeComponent();
         }
-        /*
-        private List<Media> GetBooks()
-        {
-            throw new NotImplementedException();
-        }
-        private List<Media> GetFilms()
-        {
-            throw new NotImplementedException();
-        }
-        */
 
+        private List<Media> GetTypeFromList<T>()
+        {
+            List<Media> listWithType = new List<Media>();
+            
+            foreach (Media media in allMedia)
+            {
+                if (media is T)
+                {
+                    listWithType.Add(media);
+                }
+            }
+
+            return listWithType;
+        }
         private bool ValidateInputs(string title, string writer, int length)
         {
-            if (title.Length <= 0)
+            if (title.Length <= 0) //Checktitle
             {
                 return false;
             }
-            else if (writer.Length <= 0)
+            else if (writer.Length <= 0) //Check author or director
             {
                 return false;
             }
-            else if (length <= 0)
+            else if (length <= 0) //Check amount pages or length
             {
                 return false;
             }
-            return true;
+            return true;  
         }
 
         private void SendErrorMessage(string message)
         {
             // Initializes the variables to pass to the MessageBox.Show method.
-            string caption = "Error Detected in Input";
+            string caption = "Error! 😎";
             MessageBoxButtons buttons = MessageBoxButtons.OK;
 
             // Displays the MessageBox.
@@ -63,12 +67,15 @@ namespace Mediaregister
         }
         private void AddBookButton_Click(object sender, EventArgs e)
         {
+            //Get inputs
             string title = BookTitleTextBox.Text;
             string author = AuthorTextBox.Text;
             int nrPages = (int) PagesNumber.Value;
+
             if (ValidateInputs(title, author, nrPages))
             {
                 allMedia.Add(new Book(title, author, nrPages));
+                //reset inputs
                 BookTitleTextBox.Text = "";
                 AuthorTextBox.Text = "";
                 PagesNumber.Value = PagesNumber.Minimum;
@@ -83,12 +90,14 @@ namespace Mediaregister
 
         private void AddFilmButton_Click(object sender, EventArgs e)
         {
+            //Get inputs
             string title = FilmTitleTextBox.Text;
             string director = DirectorTextBox.Text;
             int length = (int)LengthNumber.Value;
             if (ValidateInputs(title, director, length))
             {
                 allMedia.Add(new Film(title, director, length));
+                //Reset inputs
                 FilmTitleTextBox.Text = "";
                 DirectorTextBox.Text = "";
                 LengthNumber.Value = LengthNumber.Minimum;
@@ -105,48 +114,73 @@ namespace Mediaregister
 
         private void UpdateList()
         {
-            
+            List<Media> mediaToWrite;
 
-            string[] newLines = new string[allMedia.Count];
-            int index = 0; //Index in the newlines
+            switch (selectedView)
+            {
+                case SelectViews.AllBooks:
+                    mediaToWrite = GetTypeFromList<Book>();
+                    break;
+                case SelectViews.AllFilms:
+                    mediaToWrite = GetTypeFromList<Film>();
+                    break;
+                case SelectViews.AllMedia:
+                    mediaToWrite = GetTypeFromList<Media>();
+                    break;
+                default:
+                    mediaToWrite = GetTypeFromList<Media>();
+                    break;
+            }
 
+            string[] newLines = new string[mediaToWrite.Count]; //New lines
             for (int i = 0; i < newLines.Length; i++)
             {
+                newLines[i] = mediaToWrite[i].ToString();
+            
+            
+            }
 
+                int index = 0; //Index in the newlines
+
+            /*
+            for (int i = 0; i < newLines.Length; i++)
+            {
+                
                 Media media = allMedia[i];
                 switch (selectedView)
                 {
                     case SelectViews.AllBooks:
-                        media = allMedia[i] as Book;
+                        media = allMedia[i] as Book; // null if != Book
                         break;
                     case SelectViews.AllFilms:
-                        media = allMedia[i] as Film;
+                        media = allMedia[i] as Film; //null if != Film
                         break;
                     default:
                         break;
                 }
-                if (media != null)
+
+                if (media != null) //Check if should write
                 {
                     newLines[index] = media.ToString();
                     index++;
                 }
                 
-            }
-            MediaListBox.Lines = newLines;
+            }*/
+            MediaListBox.Lines = newLines; //update lines
 
         }
 
         private void ShowRadioButtons_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton rb = sender as RadioButton;
-            //Sender != radiobutton
-            if (rb == null)
+            if (rb == null) //Not radiobutton?
             {
                 return;
             }
 
-            if (rb.Checked)
+            if (rb.Checked)   //Check if radiobutton is checked(true)
             {
+                //Set view
                 switch (rb.Name)
                 {
                     case "AllMediaButton":
