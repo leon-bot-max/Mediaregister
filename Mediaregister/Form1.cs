@@ -13,32 +13,15 @@ namespace Mediaregister
 {
     public partial class Form1 : Form
     {
-        enum SelectViews
-        {
-            AllMedia, AllBooks, AllFilms
-        }
+
         private List<Media> allMedia = new List<Media>();
-        private SelectViews selectedView = SelectViews.AllMedia;
 
         public Form1()
         {
             InitializeComponent();
         }
 
-        private List<Media> GetTypeFromList<T>()
-        {
-            List<Media> listWithType = new List<Media>();
-            
-            foreach (Media media in allMedia)
-            {
-                if (media is T)
-                {
-                    listWithType.Add(media);
-                }
-            }
 
-            return listWithType;
-        }
         private bool ValidateInputs(string title, string writer, int length)
         {
             if (title.Length <= 0) //Checktitle
@@ -114,52 +97,24 @@ namespace Mediaregister
 
         private void UpdateList()
         {
-            List<Media> mediaToWrite;
 
-            //Get the selected media
-            switch (selectedView)
-            {
-                case SelectViews.AllBooks:
-                    mediaToWrite = GetTypeFromList<Book>();
-                    break;
-                case SelectViews.AllFilms:
-                    mediaToWrite = GetTypeFromList<Film>();
-                    break;
-                case SelectViews.AllMedia:
-                    mediaToWrite = GetTypeFromList<Media>();
-                    break;
-                default:
-                    mediaToWrite = GetTypeFromList<Media>();
-                    break;
-            }
-
-            string[] newLines = new string[mediaToWrite.Count]; //New lines
-            for (int i = 0; i < newLines.Length; i++)
-            {
-                newLines[i] = mediaToWrite[i].ToString();
-            
-            
-            }
-
-
-            /*
-             *                 int index = 0; //Index in the newlines
+            string[] newLines = new string[allMedia.Count];
+            int index = 0; //Index in newLines
 
             for (int i = 0; i < newLines.Length; i++)
             {
                 
                 Media media = allMedia[i];
-                switch (selectedView)
+
+                if (AllBooksButton.Checked)
                 {
-                    case SelectViews.AllBooks:
-                        media = allMedia[i] as Book; // null if != Book
-                        break;
-                    case SelectViews.AllFilms:
-                        media = allMedia[i] as Film; //null if != Film
-                        break;
-                    default:
-                        break;
+                    media = allMedia[i] as Book; //null if != Book
                 }
+                else if (AllFilmsButton.Checked)
+                {
+                    media = allMedia[i] as Film; //null if != Film
+                }
+
 
                 if (media != null) //Check if should write
                 {
@@ -167,40 +122,14 @@ namespace Mediaregister
                     index++;
                 }
                 
-            }*/
+            }
             MediaListBox.Lines = newLines; //update lines
 
         }
 
         private void ShowRadioButtons_CheckedChanged(object sender, EventArgs e)
         {
-            RadioButton rb = sender as RadioButton;
-            if (rb == null) //Not radiobutton?
-            {
-                return;
-            }
-
-            if (rb.Checked)   //Check if radiobutton is checked(true)
-            {
-                //Set view
-                switch (rb.Name)
-                {
-                    case "AllMediaButton":
-                        selectedView = SelectViews.AllMedia;
-                        break;
-                    case "AllBooksButton":
-                        selectedView = SelectViews.AllBooks;
-                        break;
-                    case "AllFilmsButton":
-                        selectedView = SelectViews.AllFilms;
-                        break;
-                    default:
-                        break;
-                }
-
-                UpdateList();
-
-            }
+            UpdateList();
         }
     }
 }
