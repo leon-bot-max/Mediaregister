@@ -99,7 +99,7 @@
             // 
             this.PagesNumber.Location = new System.Drawing.Point(80, 123);
             this.PagesNumber.Maximum = new decimal(new int[] {
-            10000,
+            100000,
             0,
             0,
             0});
@@ -251,12 +251,12 @@
             // MediaListBox
             // 
             this.MediaListBox.BackColor = System.Drawing.Color.White;
-            this.MediaListBox.Location = new System.Drawing.Point(366, 79);
+            this.MediaListBox.Location = new System.Drawing.Point(333, 79);
             this.MediaListBox.Multiline = true;
             this.MediaListBox.Name = "MediaListBox";
             this.MediaListBox.ReadOnly = true;
             this.MediaListBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.MediaListBox.Size = new System.Drawing.Size(217, 248);
+            this.MediaListBox.Size = new System.Drawing.Size(233, 248);
             this.MediaListBox.TabIndex = 2;
             // 
             // ShowButtonsGroup
@@ -264,9 +264,9 @@
             this.ShowButtonsGroup.Controls.Add(this.AllFilmsButton);
             this.ShowButtonsGroup.Controls.Add(this.AllBooksButton);
             this.ShowButtonsGroup.Controls.Add(this.AllMediaButton);
-            this.ShowButtonsGroup.Location = new System.Drawing.Point(366, 356);
+            this.ShowButtonsGroup.Location = new System.Drawing.Point(333, 333);
             this.ShowButtonsGroup.Name = "ShowButtonsGroup";
-            this.ShowButtonsGroup.Size = new System.Drawing.Size(345, 100);
+            this.ShowButtonsGroup.Size = new System.Drawing.Size(252, 45);
             this.ShowButtonsGroup.TabIndex = 3;
             this.ShowButtonsGroup.TabStop = false;
             this.ShowButtonsGroup.Text = "Visa";
@@ -274,7 +274,7 @@
             // AllFilmsButton
             // 
             this.AllFilmsButton.AutoSize = true;
-            this.AllFilmsButton.Location = new System.Drawing.Point(204, 46);
+            this.AllFilmsButton.Location = new System.Drawing.Point(199, 19);
             this.AllFilmsButton.Name = "AllFilmsButton";
             this.AllFilmsButton.Size = new System.Drawing.Size(52, 17);
             this.AllFilmsButton.TabIndex = 2;
@@ -285,7 +285,7 @@
             // AllBooksButton
             // 
             this.AllBooksButton.AutoSize = true;
-            this.AllBooksButton.Location = new System.Drawing.Point(113, 46);
+            this.AllBooksButton.Location = new System.Drawing.Point(108, 19);
             this.AllBooksButton.Name = "AllBooksButton";
             this.AllBooksButton.Size = new System.Drawing.Size(59, 17);
             this.AllBooksButton.TabIndex = 1;
@@ -297,7 +297,7 @@
             // 
             this.AllMediaButton.AutoSize = true;
             this.AllMediaButton.Checked = true;
-            this.AllMediaButton.Location = new System.Drawing.Point(21, 46);
+            this.AllMediaButton.Location = new System.Drawing.Point(16, 19);
             this.AllMediaButton.Name = "AllMediaButton";
             this.AllMediaButton.Size = new System.Drawing.Size(42, 17);
             this.AllMediaButton.TabIndex = 0;
@@ -310,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(822, 485);
+            this.ClientSize = new System.Drawing.Size(615, 485);
             this.Controls.Add(this.ShowButtonsGroup);
             this.Controls.Add(this.MediaListBox);
             this.Controls.Add(this.MediaTabControl);

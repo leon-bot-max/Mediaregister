@@ -24,15 +24,8 @@ namespace Mediaregister
 
         private bool ValidateInputs(string title, string writer, int length)
         {
-            if (title.Length <= 0) //Checktitle
-            {
-                return false;
-            }
-            else if (writer.Length <= 0) //Check author or director
-            {
-                return false;
-            }
-            else if (length <= 0) //Check amount pages or length
+            //Check title, author or director, amount pages or length
+            if (String.IsNullOrWhiteSpace(title) || String.IsNullOrWhiteSpace(writer) || length <= 0) 
             {
                 return false;
             }
@@ -41,11 +34,10 @@ namespace Mediaregister
 
         private void SendErrorMessage(string message)
         {
-            // Initializes the variables to pass to the MessageBox.Show method.
-            string caption = "Error! 😎";
+            string caption = "Error!";
             MessageBoxButtons buttons = MessageBoxButtons.OK;
 
-            // Displays the MessageBox.
+            // Display the MessageBox
             MessageBox.Show(message, caption, buttons, MessageBoxIcon.Error);
         }
         private void AddBookButton_Click(object sender, EventArgs e)
@@ -98,7 +90,7 @@ namespace Mediaregister
         private void UpdateList()
         {
 
-            string[] newLines = new string[allMedia.Count];
+            string[] newLines = new string[allMedia.Count]; //Max length = allMedia.Count
             int index = 0; //Index in newLines
 
             for (int i = 0; i < newLines.Length; i++)
@@ -131,5 +123,6 @@ namespace Mediaregister
         {
             UpdateList();
         }
+
     }
 }
