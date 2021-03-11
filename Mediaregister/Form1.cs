@@ -21,7 +21,8 @@ namespace Mediaregister
             InitializeComponent();
         }
 
-
+        /*
+         *  Function for only checking string:
         private bool ValidateInputs(string title, string writer, int length)
         {
             //Check title, author or director, amount pages or length
@@ -30,6 +31,34 @@ namespace Mediaregister
                 return false;
             }
             return true;  
+        }
+        */
+
+
+        /// <summary>
+        /// Checks inputs and resets bad inputs
+        /// </summary>
+        private bool ValidateInputs(TextBox titleBox, TextBox writerBox, NumericUpDown length)
+        {
+            bool returnValue = true;
+            //Validates and resets bad inputs
+            if (String.IsNullOrWhiteSpace(titleBox.Text)) //Check title
+            {
+                titleBox.Text = "";
+                returnValue = false;
+            }
+            if (String.IsNullOrWhiteSpace(writerBox.Text)) //Check author or director
+            {
+                writerBox.Text = "";
+                returnValue = false;
+            }
+            if (length.Value <= 0) //Check amount pages or length
+            {
+                length.Value = length.Minimum;
+                returnValue = false;
+            }
+
+            return returnValue;
         }
 
         private void SendErrorMessage(string message)
@@ -42,15 +71,18 @@ namespace Mediaregister
         }
         private void AddBookButton_Click(object sender, EventArgs e)
         {
-            //Get inputs
-            string title = BookTitleTextBox.Text;
-            string author = AuthorTextBox.Text;
-            int nrPages = (int) PagesNumber.Value;
 
-            if (ValidateInputs(title, author, nrPages))
+
+            if (ValidateInputs(BookTitleTextBox, AuthorTextBox, PagesNumber))
             {
+                //Get inputs
+                string title = BookTitleTextBox.Text.Trim();
+                string author = AuthorTextBox.Text.Trim();
+                int nrPages = (int)PagesNumber.Value;
+                //Add book
                 allMedia.Add(new Book(title, author, nrPages));
-                //reset inputs
+
+                //Reset inputs
                 BookTitleTextBox.Text = "";
                 AuthorTextBox.Text = "";
                 PagesNumber.Value = PagesNumber.Minimum;
@@ -65,13 +97,16 @@ namespace Mediaregister
 
         private void AddFilmButton_Click(object sender, EventArgs e)
         {
-            //Get inputs
-            string title = FilmTitleTextBox.Text;
-            string director = DirectorTextBox.Text;
-            int length = (int)LengthNumber.Value;
-            if (ValidateInputs(title, director, length))
+
+            if (ValidateInputs(FilmTitleTextBox, DirectorTextBox, LengthNumber))
             {
+                //Get inputs
+                string title = FilmTitleTextBox.Text.Trim();
+                string director = DirectorTextBox.Text.Trim();
+                int length = (int)LengthNumber.Value;
+                //Add Film
                 allMedia.Add(new Film(title, director, length));
+
                 //Reset inputs
                 FilmTitleTextBox.Text = "";
                 DirectorTextBox.Text = "";
