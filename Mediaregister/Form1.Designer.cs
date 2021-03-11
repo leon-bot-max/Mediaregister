@@ -310,7 +310,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(615, 485);
+            this.ClientSize = new System.Drawing.Size(615, 389);
             this.Controls.Add(this.ShowButtonsGroup);
             this.Controls.Add(this.MediaListBox);
             this.Controls.Add(this.MediaTabControl);
